@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>主播详情</title>
+<link rel="icon" href= "/static/img/icon1.ico ">
+<link rel="stylesheet" type="text/css" href="/static/info.css">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script> 
+</head>
+
+<body>
+	{% extends "base.html" %}
+	{% block content %}
+    <div class="main">
+        <div class="intro">
+            <img src="/static/img/banner.png" width="1120px" />
+            <div class="info">
+                <div class="main_photo">
+                    <img src="/static/zhubo/{{reporter_name|safe}}.jpg" width="250"/>
+                </div>
+                <div class="info_text">
+                    <div class="name">姓名：{{reporter_name|safe}}</div>
+                    <div class="thoughts">主播简介：<br/><span style="line-height:10px">{{reporter_content|safe}}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="show">
+            <img src="/static/img/show.png" width="500" />
+            <div class="list">
+                <ul>
+					{%if reporter_program%}
+						{%for i in reporter_program%}
+							<li><a href='/jiemu/{{i.title}}'>{{i.title}}</a></li>
+						{%endfor%}
+						{% if reporter_program.has_next %}
+							<a href="/more/{{reporter_name|safe}}">更多</a>
+						{% endif %}
+					{%else%}
+						<p>暂时没有播过节目</p>
+					{% endif %}
+                    <!--<div class="pagination" style="width:70%;margin:0 auto">
+							<span class="step-links">
+								{% if reporter_program.has_previous %}
+									<a href="?page={{ reporter_program.previous_page_number }}">上一页</a>
+								{% endif %}
+								<span class="current">
+									<span style="font-weight:bold;color:red;">当前：第{{ reporter_program.number }}页 ，共有：{{ reporter_program.paginator.num_pages }}页</span>
+								</span>
+								{% if reporter_program.has_next %}
+									<a href="?page={{ reporter_program.next_page_number }}">下一页</a>
+								{% endif %}
+							</span>
+					</div>-->
+                </ul>
+            </div>
+        </div>
+        <div class="partner">
+            <img src="/static/img/partner.png" width="500"/>
+            <div class="info">
+                <a href="/zhubo/{{reporter_partner|safe}}"><img src="/static/zhubo/{{reporter_partner|safe}}.jpg" width="150" /></a>
+                <div class="intro2">
+                    <li>搭档：{{reporter_partner|safe}}</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

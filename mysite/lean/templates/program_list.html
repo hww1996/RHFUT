@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>节目</title>
+		<link rel="icon" href= "/static/img/icon1.ico ">
+    </head>
+
+    <body>
+{% load staticfiles %}
+<link href="{%static "1.css"%}" type="text/css" rel="stylesheet" />
+<div style="width:70%;margin:0 auto">
+<div class="whole_header">
+    <div class="nav">
+        <div style="width: 1120px; margin: 0 auto">
+            <a href="/" class="inner_logo">
+                <img src="{%static "my_picture/0.jpg"%}" />
+            </a>
+            <div class="inner_nav1">
+                <a href="/">首页</a>
+                <a href="/jiemu/">节目</a>
+                <a href="/zhubo/">主播</a>
+                <a href="/qiang/">墙</a>
+            </div>
+            <div class="inner_nav2">
+                <a href="/uparticle/">投稿</a>
+                <a href="/music/">点歌</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+	<p>filter</p>
+	<a href="/jiemu/">all</a>
+	{%for i in category%}
+		<a href="/jiemu/category/{{i.category}}">{{i.category}}</a>
+	{%endfor%}
+	<p>the category now is {{category_name}}</p>
+	<hr/>
+	{%for j in contacts%}
+		<a href="/jiemu/{{j.title}}" >{{j.title}}</a>
+		<br/>
+	{%endfor%}
+	<div class="pagination" style="width:70%;margin:0 auto">
+						<span class="step-links">
+						{% if contacts.has_previous %}
+						<a href="?page={{ contacts.previous_page_number }}">上一页</a>
+						{% endif %}
+						
+						<span class="current">
+						<span style="font-weight:bold;color:red;">当前：第{{ contacts.number }}页 ，共有：{{ contacts.paginator.num_pages }}页</span>
+						</span>
+						{% if contacts.has_next %}
+							<a href="?page={{ contacts.next_page_number }}">下一页</a>
+						{% endif %}
+						</span>
+	</div>
+</div>
+<div class="footer">
+    <div class="footer_inner">
+        <div class="inner_link">
+            <dl>
+                <dt>友情链接</dt>
+                <dd><a href="">合肥工业大学</a></dd>
+            </dl>
+            <dl>
+                <dt>关于lightwave</dt>
+                <dd><a href="">关于我们</a></dd>
+                <dd><a href="">加入我们</a></dd>
+                <dd><a href="">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>利益相关</dt>
+                <dd><a href="">投稿须知</a></dd>
+                <dd><a href="">版权声明</a></dd>
+            </dl>
+            <dl style="margin-right:150px; width:85px;">
+                <dt>官方微信</dt>
+                <dd><img src=""></dd>
+            </dl>
+            <dl style="margin-right:0; width:85px;">
+                <dt>官方微博</dt>
+                <dd><img src=""></dd>
+            </dl>
+        </div>
+    </div>
+
+</div>
+
+    </body>
+</html>

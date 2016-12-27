@@ -1,0 +1,75 @@
+@charset "utf-8";
+#whole a{
+	text-decoration:none;
+	color:#000000 ;
+}
+body {
+	font-family : 微软雅黑 ;
+	font-size : normal;}
+#logo{
+	margin-top: 20px;
+}
+#whole {
+	width : 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+#left {
+	float : left;
+	width	: 640px;
+	padding-right:40px;
+	border-right:solid 1px gray ;
+
+
+}
+#right {
+	float : left;
+	width:	480px;
+
+}
+#rightblank {
+	margin-top:100px;
+}
+
+#artists {
+	width: 384px;
+	}
+#topmnue1 {
+	font-family :simonetta;
+	font-size: 12px;
+	text-align: right;
+	height: 18px;
+	top: 66px;
+	}
+
+#topmnue2 {
+	font-size : 18px;
+	height:26px;
+	width: 610px;
+	margin-bottom:13px;
+	padding-bottom:8px
+}
+#banner{position:relative;}
+#text1{
+	background-color: black;;
+	position:absolute; top:50%; right:50%; z-index:999;
+	color: white}
+#getpic{
+	padding-left: 207px;
+	text-align: justify;
+}
+#pic{
+	float:left;
+}
+#artists{
+	text-align: left;
+	margin-left: 50px;
+}
+.artist{
+	padding-left:85px ;
+	text-align:justify;
+}
+.artistpic{
+	float:left;
+}
+h1,h2,h3,h4{font-weight:normal;}

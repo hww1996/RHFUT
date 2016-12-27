@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>首页</title>
+		<meta name="uyan_auth" content="3eaf20f5b5" />
+		<link rel="icon" href= "/static/img/icon1.ico ">
+    </head>
+
+    <body>
+	{% load staticfiles %}
+	<link href="{%static "1.css"%}" type="text/css" rel="stylesheet" />
+	<script src="{%static "slider.js"%}"></script>
+<!--
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li><a href="category/{{ category.slug }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+       {% else %}
+            <strong>There are no categories present.</strong>
+       {% endif %}
+	   -->
+<div class="whole_header">
+    <div class="nav">
+        <div style="width: 1120px; margin: 0 auto">
+            <a href="/" class="inner_logo">
+                <img src="{%static "my_picture/0.jpg"%}" />
+            </a>
+            <div class="inner_nav1">
+                <a href="/">首页</a>
+                <a href="/jiemu/">节目</a>
+                <a href="/zhubo/">主播</a>
+                <a href="/qiang/">墙</a>
+            </div>
+            <div class="inner_nav2">
+                <a href="/uparticle/">投稿</a>
+                <a href="/music/">点歌</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapp">
+		<div id="main">
+			<div class="slider_container">
+				<div class="slider_box">
+				    <div id="slider">
+						<ul class="inner_slider">
+							<li><a href=""><img src="/static/my_picture/s1.jpg" /></a></li>
+							<li><a href=""><img src="/static/my_picture/s2.jpg" /></a></li>
+							<li><a href=""><img src="/static/my_picture/s3.jpg" /></a></li>
+							<li><a href=""><img src="/static/my_picture/s4.jpg" /></a></li>
+						</ul>
+					    <span id="span1"></span>
+						<span id="span2"></span>
+					 </div>
+				</div>
+			</div>
+		 </div>
+    </div>
+	<div class="video_wrap">
+		<div class="wrap_title">
+			<a class="title_name" href="/jiemu/">节目</a>
+		</div>
+		<ul class="video_list">
+			<li>
+				<a class="pic" href="/jiemu/mon/">
+					<img src="01.jpg" />
+				</a>
+				<p>
+					<a href="/jiemu/mon/">
+						电影推介
+					</a>
+				</p>
+			</li>
+			<li>
+				<a class="pic" href="/jiemu/tue/">
+					<img src="02.jpg" />
+				</a>
+				<p>
+					<a href="/jiemu/tue/">
+						旅游胜地
+					</a>
+				</p>
+			</li>
+			<li style="margin-right:0;">
+				<a class="pic" href="/jiemu/wed/">
+					<img src="03.jpg" />
+				</a>
+				<p>
+					<a href="/jiemu/wed/">
+						每周要闻
+					</a>
+				</p>
+			</li>
+		</ul>
+		<ul class="video_list">
+			<li>
+				<a class="pic" href="/jiemu/thu/">
+					<img src="01.jpg" />
+				</a>
+				<p>
+					<a href="/jiemu/thu/">
+						English Corner
+					</a>
+				</p>
+			</li>
+			<li>
+				<a class="pic" href="/jiemu/fir/">
+					<img src="02.jpg" />
+				</a>
+				<p>
+					<a href="/jiemu/fir/">
+						美文欣赏
+					</a>
+				</p>
+			</li>
+			<li style="margin-right:0;">
+				<a class="pic" href="/jiemu/zaojian/">
+					<img src="03.jpg" />
+				</a>
+				<p>
+					<a href="/jiemu/zaojian/">
+						早间播音
+					</a>
+				</p>
+			</li>
+		</ul>
+	</div>
+	<div class="video_wrap" style="height:500px;">
+		<div class="wrap_title">
+			<a class="title_name" href="/qiang/">墙</a>
+		</div>
+		<div>
+{%for i in contacts%}
+	<fieldset>
+							<legend>{{i.name}}</legend>				
+							<li>
+								<font style="color:blue;">{{i.title|upper}}</font>
+								<p style="font-weight:bold;">{{i.author|upper}}</p>
+								<p style="font-weight:bold;">{{i.content|upper}}</p>
+								<p style="font-weight:bold;">{{i.time|date:"Y-m-d H:i:s"}}</p>
+								<a href='/qiang/{{i.id|upper}}'>评论</a>
+							</li> 			
+	</fieldset>
+{%endfor%}
+</div>
+</div>
+	<!--百度搜索-->
+	<form name="f1" onsubmit="return g(this)" target="_blank">
+    <table bgcolor="#FFFFFF" style="font-size:9pt;">
+            <td>
+                <input type="text" name="word" onfocus="checkHttps" size="20" maxlength="100">
+                <input type="submit" value="搜索"><br>
+                <input name="tn" type="hidden" value="SE_zzsearchcode_shhzc78w">
+                <input name="cl" type="hidden" value="3">
+                <input name="ct" type="hidden">
+                <input name="si" type="hidden" value="github.com">
+                <div class="mt10">
+                    <input name="s" type="radio"> 百度搜索<input name="s" type="radio" checked> 站内
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<script src="http://s1.bdstatic.com/r/www/cache/global/js/BaiduHttps_20150714_zhanzhang.js"></script>
+<script>
+    function checkHttps () {
+        BaiduHttps.useHttps();
+    };
+    function g(formname) {
+        var data = BaiduHttps.useHttps();
+        var url = '';
+        url = data.s == 0 ? "http://www.baidu.com/baidu" : 'https://www.baidu.com/baidu' + '?ssl_s=1&ssl_c' + data.ssl_code;
+        if (formname.s[1].checked) {
+            formname.ct.value = "2097152";
+        }
+        else {
+            formname.ct.value = "0";
+        }
+        formname.action = url;
+        return true;
+    };
+</script>
+	<!--百度搜索结束-->
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="footer">
+		<div class="footer_inner">
+			<div class="inner_link">
+				<dl>
+					<dt>友情链接</dt>
+					<dd><a href="">合肥工业大学</a></dd>
+				</dl>
+				<dl>
+					<dt>关于lightwave</dt>
+					<dd><a href="guanyu/">关于我们</a></dd>
+					<dd><a href="jiaru/">加入我们</a></dd>
+					<dd><a href="">联系我们</a></dd>
+				</dl>
+				<dl>
+					<dt>利益相关</dt>
+					<dd><a href="">投稿须知</a></dd>
+					<dd><a href="">版权声明</a></dd>
+				</dl>
+				<dl style="margin-right:150px; width:85px;">
+					<dt>官方微信</dt>
+					<dd><img src="00.jpg" /></dd>
+				</dl>
+				<dl style="margin-right:0; width:85px;">
+					<dt>官方微博</dt>
+					<dd><img src="000.jpg" /></dd>
+				</dl>
+			</div>
+		</div>
+		<div class="footer_message">
+		
+		</div>
+	</div>
+    </body>
+</html>

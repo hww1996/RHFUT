@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta charset="utf-8">
+	<title>主播</title>
+	<link rel="icon" href= "/static/img/icon1.ico ">
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/info.css">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<link href="reveal-it.css" rel="stylesheet" type="text/css" />                
+<script src="reveal-it.js"></script> 
+<div class="slider">
+        <div class="img">
+            <img src="/static/zhubo/{{reporter_name|safe}}.jpg" width="100%" />
+            <span class="intro">
+                <h1 size="20" align="center">{{reporter_name|safe}}</h1>
+               {{reporter_content|safe}}
+            </span>  
+        </div>          
+</div>
+    <div class="main">
+        <div class="show">
+            <div class="til">
+                <a href="http://127.0.0.1:8000/jiemu/">播过的节目</a>
+                <img src="/static/img/title.png" width="400"/>
+            </div>
+            <a href="http://127.0.0.1:8000/zhubo/{{reporter_partner|safe}}"></a>
+            <div class="name">
+                <div>
+					<hr/>
+					<ul>
+						{%for i in reporter_program%}
+							<a href='http://127.0.0.1:8000/jiemu/{{i.title}}'>{{i.title}}</a>
+								<br/>
+						{%endfor%}
+					</ul>
+					<div class="pagination" style="width:70%;margin:0 auto">
+							<span class="step-links">
+								{% if reporter_program.has_previous %}
+									<a href="?page={{ reporter_program.previous_page_number }}">上一页</a>
+								{% endif %}
+								<span class="current">
+									<span style="font-weight:bold;color:red;">当前：第{{ reporter_program.number }}页 ，共有：{{ reporter_program.paginator.num_pages }}页</span>
+								</span>
+								{% if reporter_program.has_next %}
+									<a href="?page={{ reporter_program.next_page_number }}">下一页</a>
+								{% endif %}
+							</span>
+					</div>
+				</div>
+            </div>
+        
+        </div>
+        <div class="partner">
+            <div class="til">
+                <a>搭档</a>
+                <img src="/static/img/title.png" width="400"/>
+            </div>
+            <div class="name">
+				<img src='/static/zhubo/{{reporter_partner|safe}}.jpg' alt="{{reporter_partner|safe}}" width="30%" height="30%"/>
+				<br/>
+                <a href="http://127.0.0.1:8000/zhubo/{{reporter_partner|safe}}">搭档：{{reporter_partner|safe}}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

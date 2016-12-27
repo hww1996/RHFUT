@@ -1,0 +1,16 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>文章区</title>
+</head>
+<body>
+        <h1>今日更新</h1>
+            <ul>
+                {% for i in article %}
+                <li>
+				<a href='{{i.title}}'>{{i.title}}</a><p>{{i.timestamp}}</p> 
+				</li>
+                {% endfor %}
+            </ul>
+    </body>
+</html>

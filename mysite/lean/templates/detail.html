@@ -1,0 +1,22 @@
+<html>
+    <head>
+	    <meta charset="utf-8">
+        <title>墙</title>
+		<link rel="icon" href= "/static/img/icon1.ico ">
+    </head>
+	
+	<body>
+	{% extends "base.html" %}
+	{% block content %}
+        <p>{{qiang_detail.title}}</p>
+		<p>{{qiang_detail.author}}</p>
+		<p>{{qiang_detail.content}}</p>
+		<p>{{qiang_detail.time|date:"Y-m-d H:i:s"}}</p>
+		<hr>
+		<!-- UY BEGIN -->
+		<div id="uyan_frame"></div>
+		<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2089509"></script>
+		<!-- UY END -->
+		{% endblock %}
+	</body>
+</html>

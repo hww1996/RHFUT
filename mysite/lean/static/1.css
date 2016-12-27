@@ -1,0 +1,301 @@
+body
+{
+	margin:0;
+	padding:0;
+	font-family:"Microsoft YaHei",sans-serif;
+	font-size: 13px;
+}
+
+body a:hover {
+	color:#b8c6ef;
+	text-decoration:none;
+}
+
+a{
+	font-weight:bold;
+}
+.wrapp
+{
+	height:660px;
+}
+
+.nav
+{
+	width: 100%;
+	height:60px;
+	background: #000 none repeat scroll 0 0;
+	opacity: 0.96;
+	position: fixed;
+	top: 0;
+	left:0;
+	z-index: 10;
+	text-decoration:none;
+}
+
+.inner_logo
+{
+	float:left;
+	width:60px;
+	height:60px;
+	font-size:36px;
+	margin-top:0;
+	margin-right:10px;
+	text-decoration:none;
+	color:#fff;
+}
+
+.inner_logo img
+{
+	width:60px;
+	height:60px;
+	border-radius:50%;
+}
+
+.inner_nav1 a 
+{
+	font-family:"Helvitica Neue",Helvitica,Arial,"Microsoft YaHei",sans-serif;
+	font-size:13px;
+	height:60px;
+	line-height:60px;
+	margin-left:22px;
+	text-align:center;
+	text-decoration:none;
+	
+	color:#FFFFFF;
+	float:left;
+}
+
+.inner_nav2 a
+{
+	font-family:"Helvitica Neue",Helvitica,Arial,"Microsoft YaHei",sans-serif;
+	font-size:13px;
+	height:60px;
+	line-height:60px;
+	margin-left:22px;
+	text-align:center;
+	text-decoration:none;
+	
+	color:#FFFFFF;
+	float:right;
+}
+
+.slider_box
+{
+	width:100%;
+	height: 600px;
+	position: absolute;
+	overflow: hidden;
+	
+}
+
+#slider
+{
+	width:100%;
+	height:600px;
+}
+
+.slider_container
+{
+	background-color: #FFF;
+	position: relative;
+	width: 100%;
+	height: 600px;
+	overflow: hidden;
+}
+
+#main
+{
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	top:60px;
+}
+
+#slider ul
+{
+	width:15360px;
+	padding:0;
+	margin:0;
+	position:absolute;
+}
+
+
+.inner_slider li
+{
+	position:relative;
+	list-style:none;
+	margin:auto;
+	padding:0;
+	float:left;
+	text-align:center;
+	height:600px;
+	width:1920px;
+	display:block;
+}
+
+.inner_slider li img
+{
+	height:900px;
+	width:1920px;
+}
+
+#span1
+{
+	left: 8px;
+	top:220px;
+	display: block;
+	position: absolute;
+	width: 32px;
+	height: 60px;
+	cursor: pointer;
+	background: transparent url("b.png") no-repeat scroll 0 0;
+	overflow: hidden;
+	color:#333;
+}
+
+#span2
+{
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: transparent;
+	background-image: url("5.png");
+	background-origin: padding-box;
+	background-position: -32px 0px;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+	color: #333;
+	cursor: pointer;
+	display: block;
+	height: 60px;
+	overflow: hidden;
+	position: absolute;
+	right: 8px;
+	top: 220px;
+	width: 32px;
+
+}
+
+.video_wrap
+{
+	width: 1120px;
+	margin: 0 auto;
+}
+
+.wrap_title
+{
+	height: 87px;
+	font-size: 0;
+}
+
+.title_name
+{
+	text-decoration: none;
+	height: 62px;
+	font-size: 24px;
+	line-height: 62px;
+	float: left;
+	color: #31343b;
+	margin-right: 26px;
+	padding-top: 19px;
+	padding-bottom: 6px;
+}
+
+.video_list
+{
+	width: 1140px;
+	font-size: 0;
+	overflow: hidden;
+	padding-bottom: 10px;
+	padding-left: 0px;
+}
+
+.video_list li
+{
+	width: 360px;
+	height: 301px;
+	float: left;
+	margin-right: 20px;
+}
+
+.video_list li .pic img
+{
+	width: 360px;
+	height: 240px;
+}
+
+.video_list li p
+{
+	font-size: 16px;
+	color: #31343b;
+	margin-top: 15px;
+	text-align: center;
+}
+
+.video_list li p a
+{
+	color: #31343b;
+	text-decoration:none;
+}
+
+.footer
+{
+	width: 100%;
+	height: 300px;
+	background: #000;
+	border-top: 1px solid #f1f1f1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.footer .footer_inner
+{
+	width: 100%;
+	height: 239px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.footer .footer_inner .inner_link
+{
+	width: 1120px;
+	height: 239px;
+	margin: 0 auto;
+}
+
+.footer .footer_inner .inner_link dl
+{
+	width: 140px;
+	text-align: left;
+	margin-right: 100px;
+	margin-top: 54px;
+	float: left;
+}
+
+.footer .footer_inner .inner_link dl dt
+{
+	font-size: 16px;
+	color: #757e91;
+}
+
+.footer .footer_inner .inner_link dl dd
+{
+	margin-top: 7px;
+	position: relative;
+	margin-left:0px;
+}
+
+.footer .footer_inner .inner_link dl dd a
+{
+	width: 140px;
+	height: 30px;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 43px;
+	color: #757e91;
+	text-decoration:none;
+}
+
+.footer .footer_inner .inner_link dl dd img
+{
+	width: 160px;
+	height:160px;
+}

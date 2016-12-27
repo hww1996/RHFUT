@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{reporter_name|safe}}播过的节目</title>
+<link rel="icon" href= "/static/img/icon1.ico ">
+</head>
+
+<body>
+{% load staticfiles %}
+<link href="{%static "1.css"%}" type="text/css" rel="stylesheet" />
+<div class="whole_header">
+    <div class="nav">
+        <div style="width: 1120px; margin: 0 auto">
+            <a href="/" class="inner_logo">
+                <img src="{%static "my_picture/0.jpg"%}" />
+            </a>
+            <div class="inner_nav1">
+                <a href="/">首页</a>
+                <a href="/jiemu/">节目</a>
+                <a href="/zhubo/">主播</a>
+                <a href="/qiang/">墙</a>
+            </div>
+            <div class="inner_nav2">
+                <a href="/uparticle/">投稿</a>
+                <a href="/music/">点歌</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+    <div class="main">
+        <div class="intro">
+            <div class="info">
+                <div class="main_photo">
+                </div>
+                <div class="info_text">
+                    <div class="name">{{reporter_name|safe}}播过的节目：</div>
+                </div>
+            </div>
+        </div>
+        <div class="show">
+            <div class="list">
+                <ul>
+						{%for i in reporter_program%}
+							<li><a href='/jiemu/{{i.title}}'>{{i.title}}</a></li>
+						{%endfor%}
+						<div class="pagination" style="width:70%;margin:0 auto">
+							<span class="step-links">
+								{% if reporter_program.has_previous %}
+									<a href="?page={{ reporter_program.previous_page_number }}">上一页</a>
+								{% endif %}
+								<span class="current">
+									<span style="font-weight:bold;color:red;">当前：第{{ reporter_program.number }}页 ，共有：{{ reporter_program.paginator.num_pages }}页</span>
+								</span>
+								{% if reporter_program.has_next %}
+									<a href="?page={{ reporter_program.next_page_number }}">下一页</a>
+								{% endif %}
+							</span>
+						</div>
+                </ul>
+            </div>
+        </div>
+    </div>
+<div class="footer">
+    <div class="footer_inner">
+        <div class="inner_link">
+            <dl>
+                <dt>友情链接</dt>
+                <dd><a href="">合肥工业大学</a></dd>
+            </dl>
+            <dl>
+                <dt>关于lightwave</dt>
+                <dd><a href="">关于我们</a></dd>
+                <dd><a href="">加入我们</a></dd>
+                <dd><a href="">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>利益相关</dt>
+                <dd><a href="">投稿须知</a></dd>
+                <dd><a href="">版权声明</a></dd>
+            </dl>
+            <dl style="margin-right:150px; width:85px;">
+                <dt>官方微信</dt>
+                <dd><img src=""></dd>
+            </dl>
+            <dl style="margin-right:0; width:85px;">
+                <dt>官方微博</dt>
+                <dd><img src=""></dd>
+            </dl>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+        <title>墙</title>
+    </head>
+
+    <body>
+        <h1>墙</h1>
+	   <li><a href="http://127.0.0.1:8000/qiang/fatie/">发帖</a></li>
+	   <li><a href="http://127.0.0.1:8000/qiang/">全部</a></li>
+	   <li><a href="http://127.0.0.1:8000/qiang/shiwu/">失物</a></li>
+	   <li><a href="http://127.0.0.1:8000/qiang/biaobai/">表白</a></li>
+	   <li><a href="http://127.0.0.1:8000/qiang/tucao/">吐槽</a></li>
+	   <li><a href="http://127.0.0.1:8000/qiang/huodong/">活动</a></li>
+	   {%for i in contacts%}
+	   <fieldset>
+				<legend>{{i.name}}</legend>				
+				<li>
+				<font color="red">{{i.title|upper}}</font>
+				<p>{{i.author|upper}}</p>
+				<p>{{i.content|upper}}</p>
+				<p>{{i.time}}</p>
+				<a href='http://127.0.0.1:8000/qiang/{{i.id|upper}}'>评论</a>
+				</li> 			
+		</fieldset>
+		{%endfor%}
+<div class="pagination" style="width:70%;margin:0 auto">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">上一页</a>
+        {% endif %}
+
+        <span class="current">
+            当前：第{{ contacts.number }}页 ，共有：{{ contacts.paginator.num_pages }}页
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">下一页</a>
+        {% endif %}
+    </span>
+</div>
+    </body>
+</html>

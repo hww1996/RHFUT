@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>墙</title>
+	<link rel="icon" href= "/static/img/icon1.ico ">
+</head>
+<body>
+{% load staticfiles %}
+<link href="{%static "Style.css"%}" rel="stylesheet" type="text/css" />
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="{%static "masonry.js"%}"></script>
+<script src="{%static "infinitescroll.js"%}"></script>
+
+<script type="text/javascript">  //瀑布流
+   $(function(){
+    $('.wall_container1').masonry({
+        itemSelector : '.wall',
+        columnWidth : 100,
+        isAnimated: true,
+        resize: true,
+        fitWidth: true
+    });
+});
+</script>
+<script type="text/javascript">  
+$(function(){
+$(".select a").click(function(){
+$(this).addClass('on').siblings().removeClass('on');
+var index = $(this).index();
+number = index;
+$('.container li').hide();
+$('.container li:eq('+index+')').show();
+});
+});
+</script>
+<script type="text/javascript">
+    $('.wall_container1').infinitescroll({
+                navSelector  : ".pagination",   // 页面分页元素(成功后会被隐藏)
+                nextSelector : ".step-links a:last", // 需要点击的下一页链接，和2的html要对应
+                itemSelector : ".wall"  ,
+                animate      : true,
+                extraScrollPx: 100,
+                // debug     : true,
+                bufferPx     : 9,
+                loading: {
+                    finishedMsg: '没有更多内容了', //当加载失败，或者加载不出内容之后的提示语
+                    img:  'loading-new.gif',
+                    msgText : '正在加载中...',    //加载时的提示语
+                },
+            },
+            function( newElements， opt ) {
+
+    }
+    };
+</script>
+
+<div class="whole_header">
+    <div class="nav">
+        <div style="width: 1120px; margin: 0 auto">
+            <a href="/" class="inner_logo">
+                <img src="{%static "my_picture/0.jpg"%}" />
+            </a>
+            <div class="inner_nav1">
+                <a href="/">首页</a>
+                <a href="/jiemu/">节目</a>
+                <a href="/zhubo/">主播</a>
+                <a href="/qiang/">墙</a>
+            </div>
+            <div class="inner_nav2">
+                <a href="/uparticle/">投稿</a>
+                <a href="/music/">点歌</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="selector">
+    <div class="select">
+        <a  href="/qiang/biaobai">告白墙</a>
+        <a  href="/qiang/tucao">吐槽墙</a>
+        <a  href="/qiang/shiwu">失物墙</a>
+        <a  href="/qiang/huodong" style="margin-right: 0px">活动墙</a>
+		<a  href="/qiang/fatie/" class="select_func">发墙</a>
+		<a  href="/qiang/" class="select_func" style="margin-right: 0px;">全部</a>
+    </div>
+</div>
+<div class="container">
+    <ul class="tab">
+        <li>
+        <div class="wall_container1">
+			{%for i in contacts%}
+            <div class="wall">
+					
+						<fieldset>
+							<legend>{{i.name}}</legend>				
+							<li>
+								<font style="color:blue;">{{i.title|upper}}</font>
+								<p style="font-weight:bold;">{{i.author|upper}}</p>
+								<p style="font-weight:bold;">{{i.content|upper}}</p>
+								<p style="font-weight:bold;">{{i.time|date:"Y-m-d H:i:s" }}</p>
+								<a href='/qiang/{{i.id|upper}}'>评论</a>
+							</li> 			
+						</fieldset>
+				</div>
+				{%endfor%}
+        </div>
+        </li>
+        <li>
+        </li>
+        <li>
+        </li>
+        <li>
+        </li>
+     </ul>
+	 <div class="pagination" style="width:70%;margin:0 auto">
+						<span class="step-links">
+						{% if contacts.has_previous %}
+						<a href="?page={{ contacts.previous_page_number }}">上一页</a>
+						{% endif %}
+						
+						<span class="current">
+						<span style="font-weight:bold;color:red;">当前：第{{ contacts.number }}页 ，共有：{{ contacts.paginator.num_pages }}页</span>
+						</span>
+						{% if contacts.has_next %}
+							<a href="?page={{ contacts.next_page_number }}">下一页</a>
+						{% endif %}
+						</span>
+					</div>
+</div>
+
+<div class="footer">
+    <div class="footer_inner">
+        <div class="inner_link">
+            <dl>
+                <dt>友情链接</dt>
+                <dd><a href="">合肥工业大学</a></dd>
+            </dl>
+            <dl>
+                <dt>关于lightwave</dt>
+                <dd><a href="">关于我们</a></dd>
+                <dd><a href="">加入我们</a></dd>
+                <dd><a href="">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>利益相关</dt>
+                <dd><a href="">投稿须知</a></dd>
+                <dd><a href="">版权声明</a></dd>
+            </dl>
+            <dl style="margin-right:150px; width:85px;">
+                <dt>官方微信</dt>
+                <dd><img src=""></dd>
+            </dl>
+            <dl style="margin-right:0; width:85px;">
+                <dt>官方微博</dt>
+                <dd><img src=""></dd>
+            </dl>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
